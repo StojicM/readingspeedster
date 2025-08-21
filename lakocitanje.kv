@@ -1,0 +1,1019 @@
+WindowManager:
+    Pocetna:
+    TextPrep:
+    Olaksaonica:
+    Tekstovi:
+    Dynamic:
+
+<BoxButton@ButtonBehavior+BoxLayout>:
+    orientation: 'vertical'
+
+<Pocetna>
+    name: 'Pocetna'
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout: #MiroTopBar
+            orientation: 'horizontal'
+            size_hint: 1, .08
+            pos_hint: {"center_x": .5, "center_y": .955}
+            Button: #Welcome
+                background_normal: ''
+                background_color: (.44,.11,.57,.9)
+                size_hint_x: .15
+                on_press: root.pop_info()
+                BoxLayout:
+                    orientation: 'vertical'
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    padding: 10
+                    Image:
+                        source: 'icons/info_white_48dp.png'
+                        pos_hint: {'center_x':.5, 'center_y':.5}
+
+            Button: #Title
+                background_normal: ''
+                background_color: (.1,.3,.5,.9)
+                size_hint_x: .59
+                BoxLayout:
+                    orientation: 'horizontal'
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    padding: 5, 15
+                    Label:
+                        color: '#ffffff'
+                        text_size: self.size
+                        font_size: '20sp'
+                        halign: 'center'
+                        valign: 'middle'
+                        text: "Reading Speedster Ult"
+            Button: #Author
+                background_normal: ''
+                background_color: (.1,.3,.4,1)#(.34,.01,.47,.2)
+                size_hint_x: .15
+                on_press: root.pop_author()
+                BoxLayout:
+                    orientation: 'vertical'
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    padding: 5
+                    Image:
+                        source: 'icons/WizardM.png'
+                        pos_hint: {'center_x':.5, 'center_y':.5}
+                        size_hint_y: .7
+                    Label:
+                        color: '#ffffff'
+                        size_hint_y: .3
+                        text: "Author"
+            Button: #Donate
+                background_normal: ''
+                background_color: (.1,.6,.2,.9)
+                size_hint_x: .17
+                on_press: root.pop_donate()
+                BoxLayout:
+                    orientation: 'vertical'
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    padding: 4
+                    Image:
+                        source: 'icons/piggy-bank.png'
+                        pos_hint: {'center_x':.5, 'center_y':.5}
+                        size_hint_y: .8
+                    Label:
+                        color: '#ffffff'
+                        size_hint_y: .3
+                        text: "Donate"#"Contribute"
+
+        GridLayout: #BODY-GAMES
+            cols: 2
+            size_hint_y: .78
+            padding: 20, 20, 20, 80
+            spacing: 20
+            BoxButton: #Imagine
+                size_hint: .5, .1
+                canvas:
+                    Color:
+                        rgba: (.68,.3,0,.9)
+                    Line:
+                        width: 1
+                        rounded_rectangle: (self.x, self.y, self.width, self.height, 5)
+                on_press:
+                    app.root.current = 'TextPrep'
+                    app.root.screens[1].igram_igru="Imagine"
+                    root.manager.transition.direction = 'left'
+                    root.manager.transition.duration = .3
+                Image:
+                    size_hint_y: .7
+                    source: 'data/imagine.png'
+                Label:
+                    canvas.before:
+                        Color:
+                            rgba: (.68,.3,0,.9)
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [(0, 0), (0, 0), (5,5), (5,5)]
+                    color: '#ffffff'
+                    size_hint_y: .3
+                    text: "Imagine"
+                    text_size: self.size
+                    halign: 'center'
+                    valign: 'middle'
+                    font_size: '18sp'
+            BoxButton: #Acumulate
+                size_hint: .5, .1 #background_normal: 'data/accumulation.png'
+                canvas:
+                    Color:
+                        rgba: (.68,.68,0,.9)
+                    Line:
+                        width: 1
+                        rounded_rectangle: (self.x, self.y, self.width, self.height, 5)
+                on_press:
+                    app.root.current = 'TextPrep'
+                    app.root.screens[1].igram_igru="Accumulation"
+                    root.manager.transition.direction = 'left'
+                    root.manager.transition.duration = .3
+                Image:
+                    size_hint_y: .7
+                    source: 'data/accumulation.png'
+                Label:
+                    canvas.before:
+                        Color:
+                            rgba: (.68,.68,0,.85)
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [(0, 0), (0, 0), (5,5), (5,5)]
+                    color: '#ffffff'
+                    size_hint_y: .3
+                    text: "Accumulate"
+                    text_size: self.size
+                    halign: 'center'
+                    valign: 'middle'
+                    font_size: '20sp'
+
+            BoxButton: #DeSync
+                size_hint: .5, .1 #background_normal: 'data/desync.png'
+                canvas:
+                    Color:
+                        rgba: (.5,.2,.2, 1)
+                    Line:
+                        width: 1
+                        rounded_rectangle: (self.x, self.y, self.width, self.height, 5)
+                on_press:
+                    app.root.current = 'TextPrep'
+                    app.root.screens[1].igram_igru="DeSync"
+                    root.manager.transition.direction = 'left'
+                    root.manager.transition.duration = .3
+                Image:
+                    size_hint_y: .7
+                    source: 'data/desync.png'
+                Label:
+                    canvas.before:
+                        Color:
+                            rgba: (.7,.3,.3,.8)
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [(0, 0), (0, 0), (5,5), (5,5)]
+                    color: '#ffffff'
+                    size_hint_y: .3
+                    text: "DeSync"
+                    text_size: self.size
+                    halign: 'center'
+                    valign: 'middle'
+                    font_size: '20sp'
+
+            BoxButton: #Telegraphy
+                size_hint: .5, .1 #background_normal: 'data/tele.png'
+                canvas:
+                    Color:
+                        rgba: (.46,0,.27,.9)
+                    Line:
+                        width: 1
+                        rounded_rectangle: (self.x, self.y, self.width, self.height, 5)
+                on_press:
+                    app.root.current = 'TextPrep'
+                    app.root.screens[1].igram_igru="Telegraphy"
+                    root.manager.transition.direction = 'left'
+                    root.manager.transition.duration = .3
+                Image:
+                    size_hint_y: .7
+                    source: 'data/tele.png'
+                Label:
+                    canvas.before:
+                        Color:
+                            rgba: (.61,0.15,.42,.8)
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [(0, 0), (0, 0), (5,5), (5,5)]
+                    color: '#ffffff'
+                    size_hint_y: .3
+                    text: "Telegraphy"
+                    text_size: self.size
+                    halign: 'center'
+                    valign: 'middle'
+                    font_size: '20sp'
+
+            BoxButton: #Spanner
+                size_hint: .5, .1 #background_normal: 'data/spin-spanner.png'
+                canvas:
+                    Color:
+                        rgba: (0,.27,.46,.9)
+                    Line:
+                        width: 1
+                        rounded_rectangle: (self.x, self.y, self.width, self.height, 10)
+                on_press:
+                    app.root.current = 'TextPrep'
+                    app.root.screens[1].igram_igru="SpinSpanner"
+                    root.manager.transition.direction = 'left'
+                    root.manager.transition.duration = .3
+                Image:
+                    size_hint_y: .7
+                    source: 'data/spin-spanner.png'
+                Label:
+                    canvas.before:
+                        Color:
+                            rgba: (.15,.42,.61, .8)
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [(0, 0), (0, 0), (10, 10), (10,10)]
+                    color: '#ffffff'
+                    size_hint_y: .3
+                    text: "Spanner"
+                    halign: 'center'
+                    valign: 'middle'
+                    text_size: self.size
+                    font_size: '20sp'
+
+            BoxButton: #Semtitles
+                size_hint: .5, .1 #background_normal: 'data/tv.png'
+                canvas:
+                    Color:
+                        rgba: (.85,.45,0, .9)
+                    Line:
+                        width: 1
+                        rounded_rectangle: (self.x, self.y, self.width, self.height, 5)
+                on_press:
+                    app.root.current = 'TextPrep'
+                    app.root.screens[1].igram_igru="Semtitles"
+                    root.manager.transition.direction = 'left'
+                    root.manager.transition.duration = .3
+                Image:
+                    size_hint_y: .7
+                    source: 'data/tv.png'
+                Label:
+                    canvas.before:
+                        Color:
+                            rgba: (.95,.55,.05,.8)
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [(0, 0), (0, 0), (5,5), (5,5)]
+                    color: '#ffffff'
+                    size_hint_y: .3
+                    text: "Semtitles"
+                    text_size: self.size
+                    halign: 'center'
+                    valign: 'middle'
+                    font_size: '20sp'
+            BoxButton: #ZigZags
+                size_hint: .5, .1 #background_normal: 'data/zigzag-eyes.png'
+                canvas:
+                    Color:
+                        rgba: (.46,.21,0,.9)
+                    Line:
+                        width: 1
+                        rounded_rectangle: (self.x, self.y, self.width, self.height, 5)
+                on_press:
+                    app.root.current = 'TextPrep'
+                    app.root.screens[1].igram_igru="ZigZags"
+                    root.manager.transition.direction = 'left'
+                    root.manager.transition.duration = .3
+                Image:
+                    size_hint_y: .7
+                    source: 'data/zigzag-eyes.png'
+                Label:
+                    canvas.before:
+                        Color:
+                            rgba: (.61,.36,.15,.8)
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [(0, 0), (0, 0), (5,5), (5,5)]
+                    color: '#ffffff'
+                    size_hint_y: .3
+                    text: "ZigZags"
+                    text_size: self.size
+                    halign: 'center'
+                    valign: 'middle'
+                    font_size: '20sp'
+            BoxButton: #iSlider
+                size_hint: .5, .1 #background_normal: 'data/sonic-green.png'
+                canvas:
+                    Color:
+                        rgba: (.73,.76,0,.9)
+                    Line:
+                        width: 1
+                        rounded_rectangle: (self.x, self.y, self.width, self.height, 5)
+                on_press:
+                    app.root.current = 'TextPrep'
+                    app.root.screens[1].igram_igru="iSlider"
+                    root.manager.transition.direction = 'left'
+                    root.manager.transition.duration = .3
+                Image:
+                    size_hint_y: .7
+                    source: 'data/sonic-green.png'
+                Label:
+                    canvas.before:
+                        Color:
+                            rgba: (.73,.76,0,.8)
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [(0, 0), (0, 0), (5,5), (5,5)]
+                    color: '#ffffff'
+                    size_hint_y: .3
+                    text: "iSlides"
+                    text_size: self.size
+                    halign: 'center'
+                    valign: 'middle'
+                    font_size: '20sp'
+
+        GridLayout: #BOTTOM-BAR
+            rows: 1
+            size_hint: 1, .14
+            spacing: 3
+            Button: #Learn
+                background_normal: ''
+                background_color: (.44,.11,.57,1)
+                size_hint_x: .2
+                on_press:
+                    root.manager.transition.duration = 0
+                    app.root.current = 'Dynamic'
+                    app.root.screens[4].miro_top_bar.text = "  Learn about reading"
+                    app.root.screens[4].bar_icon.source = 'icons/school_white.png'
+                    app.root.screens[4].learning()
+                StackLayout:
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    orientation: 'tb-lr'
+                    padding: 5
+                    Image:
+                        source: 'icons/school_white.png'
+                        size_hint_y: .7
+                    MDLabel:
+                        color: '#ffffff'
+                        font_style: 'Body2'
+                        halign: 'center'
+                        size_hint_y: .3
+                        text: "Learn"
+            Button: #Tutorial
+                background_normal: ''
+                background_color: (.07,.24,.49,1)
+                size_hint_x: .2
+                on_press:
+                    root.manager.transition.duration = 0
+                    app.root.screens[4].miro_top_bar.text = "  How to use this app"
+                    app.root.screens[4].bar_icon.source = 'icons/account-school.png'
+                    app.root.current = 'Dynamic'
+                    app.root.screens[4].tutorial()
+                MDBoxLayout:
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    orientation: 'vertical'
+                    padding: 5
+                    Image:
+                        source: 'icons/account-school.png'
+                        size_hint_y: .7
+                    MDLabel:
+                        color: '#ffffff'
+                        font_style: 'Body2'
+                        halign: 'center'
+                        size_hint_y: .3
+                        text: "Tutorial"
+            Button: #Contribute
+                background_normal: ''
+                background_color: (.05,.35,.5,1)
+                size_hint_x: .3
+                on_press: root.pop_contribute()
+                BoxLayout:
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    orientation: 'vertical'
+                    padding: 5
+                    Image:
+                        source: 'icons/gift_open_white_48dp.png'
+                        size_hint_y: .7
+                    MDLabel:
+                        color: '#ffffff'
+                        font_style: 'Body2'
+                        size_hint_y: .3
+                        halign: 'center'
+                        text: "Contribute"
+
+            Button: #QuickTips
+                background_normal: ''
+                background_color: (.07,.24,.49,1)
+                size_hint_x: .2
+                on_press: root.pop_tips()#root.show_pop(msg="QuickTip")
+                BoxLayout:
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    orientation: 'vertical'
+                    padding: 2
+                    Image:
+                        source: 'icons/teacher.png'
+                        size_hint_y: .7
+                    MDLabel:
+                        color: '#ffffff'
+                        font_style: 'Body2'
+                        size_hint_y: .3
+                        halign: 'center'
+                        text: "Quick tips"
+
+            Button: #Articles
+                background_normal: ''
+                background_color: (.44,.11,.57,1)
+                size_hint_x: .2
+                on_press:
+                    root.manager.transition.duration = .2
+                    app.root.current = 'Tekstovi'
+                    root.manager.transition.direction = 'up'
+                StackLayout:
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    orientation: 'tb-lr'
+                    padding: 5
+                    Image:
+                        source: 'icons/documents_white_48dp.png'
+                        size_hint_y: .7
+                    MDLabel:
+                        color: '#ffffff'
+                        font_style: 'Body2'
+                        size_hint_y: .3
+                        halign: 'center'
+                        text: "Articles"
+
+
+<TextPrep>:
+    name: 'TextPrep'
+    lista_naslova: lista_naslova
+    podesavanja_grid: podesavanja_grid
+    nav_grid: nav_grid
+    izabrani_text: izabrani_text
+    brzina_vezbanja: brzina_vezbanja
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout: #MiroTopBar
+            orientation: 'horizontal'
+            size_hint: 1, .08
+            pos_hint: {"center_x": .5, "center_y": .955}
+            Button: #Title
+                background_normal: ''
+                background_down: ''
+                background_color: (.1,.3,.5,.9)
+                size_hint_x: .55
+                BoxLayout:
+                    orientation: 'horizontal'
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    padding: 5, 15
+                    Image:
+                        source: 'icons/controller_white_36dp.png'
+                        size_hint_x: .3
+                    Label:
+                        color: '#ffffff'
+                        text_size: self.size
+                        font_size: '22sp'
+                        halign: 'left'
+                        valign: 'middle'
+                        text: root.igram_igru
+
+            MDRectangleFlatIconButton: #Intstructions Popup
+                size_hint_x: .3
+                pos: self.parent.pos
+                size: self.parent.size
+                icon: "school"
+                text: "Instructions"
+                font_style: 'Button'
+                theme_text_color: "Custom"
+                text_color: "white" #line_color: "white"
+                md_bg_color: "red"
+                theme_icon_color: "Custom"
+                icon_color: "white"
+                on_press: root.pop_instrukcije()
+
+        Label: #Title
+            size_hint_y: .1
+            font_size: '19sp'
+            markup: True
+            text: "Choose the practice article, \nset the parameters, and  [b]'Run'[/b]!"
+            halign: 'middle'
+            halign: 'center'
+            color: (.1,.1,.1, 1)
+            canvas.before:
+                Color:
+                    rgba: (.9,.9,.9,1)
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+        ScrollView: #Choosing articles
+            size_hint_y: .74
+            size_hint_x: .99
+            pos_hint: {"center_x": .5, "center_y": .5}
+            bar_inactive_color: (.1,.3,.5,.9)
+            bar_width: 5
+            canvas.before:
+                Color:
+                    rgba: (.9,.9,.9,1)
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                Line:
+                    width: .7
+                    rectangle: (self.x, self.y, self.width, self.height)
+
+            MDList:
+                id: lista_naslova
+                spacing: 3
+                padding: 5
+
+
+        GridLayout: #BottomNavigation
+            id:nav_grid
+            rows:1
+            size_hint_y: .09
+            Button:
+                background_normal: ''
+                background_color: (.1,.3,.5,.9)
+                size_hint_x: .2
+                on_press: root.pod_grid("x")
+                StackLayout:
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    orientation: 'tb-lr'
+                    padding: 2, 10
+                    Image:
+                        source: 'icons/cog_white_48dp.png'
+                        size_hint_y: .7
+                    MDLabel:
+                        text: "Settings"
+                        font_style: 'Body2'
+                        color: '#ffffff'
+                        size_hint_y: .3
+                        halign: 'center'
+                        valign: 'center'
+            Button:
+                background_normal: ''
+                background_color: (.85,.9,.85,1)
+                background_down: ''
+                size_hint_x: .6
+                StackLayout:
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    orientation: 'tb-lr'
+                    padding: 2, 10
+                    Label:
+                        id: izabrani_text
+                        color: '#00004e'
+                        text_size: self.size
+                        halign: 'center'
+                        valign: 'middle'
+                        text: "> Selected article <"
+            Button:
+                background_normal: ''
+                background_color: (.7,.8,.7,.9)
+                background_down: ''
+                size_hint_x: .2
+                StackLayout:
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    orientation: 'tb-lr'
+                    padding: 2, 10
+                    Label:
+                        id: brzina_vezbanja
+                        color: '#00004e'
+                        text_size: self.size
+                        halign: 'center'
+                        valign: 'middle'
+                        text: "w/min"
+
+            Button:
+                background_normal: ''
+                background_color: (.1,.8,.1,.9)
+                size_hint_x: .2
+                on_press:
+                    root.manager.transition.duration = .4
+                    if len(root.ceo_tekst): app.root.current = 'Olaksaonica'
+                    if len(root.ceo_tekst) <= 0: root.izabrani_text.text = "First select an article!"
+                    app.root.screens[2].igram_igru = root.igram_igru
+                    app.root.screens[2].ceo_tekst = root.ceo_tekst
+                    root.manager.transition.direction = 'left'
+                    root.odakle = "Iz olakšaonice"
+                StackLayout:
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    orientation: 'tb-lr'
+                    padding: 2, 10
+                    Image:
+                        id: nav_play_image
+                        source: 'icons/play_white_48dp.png'
+                        size_hint_y: .7
+                    Label:
+                        color: '#ffffff'
+                        size_hint_y: .3
+                        text: "Run"
+
+    FloatLayout: #SETTINGS-POPUP
+        GridLayout:
+            id: podesavanja_grid
+            cols: 1
+            size_hint_x: .85
+            size_hint_y: .5
+            pos_hint: {'x': 0, 'y': .1}
+
+
+<Olaksaonica>:
+    name: 'Olaksaonica'
+    rsvp_display:rsvp_display
+    grozd_box:grozd_box
+    nav_grid:nav_grid
+    nav_play:nav_play
+    nav_play_image:nav_play_image
+    pokazivac:pokazivac
+    canvas.before:
+        Color:
+            rgba: (.99,.99,1,.9)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout: #MiroTopBar
+            orientation: 'horizontal'
+            size_hint: 1, .08
+            pos_hint: {"center_x": .5, "center_y": .955}
+            Button:
+                background_normal: ''
+                background_down: ''
+                background_color: (.1,.3,.5,.9)
+                size_hint_x: .8
+                BoxLayout:
+                    orientation: 'horizontal'
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    padding: 5, 15
+                    Image:
+                        source: 'icons/speedometer_white_36dp.png'
+                        size_hint_x: .2
+                    Label:
+                        color: '#ffffff'
+                        size_hint_x: .8
+                        text: "Practi-screen"
+                        text_size: self.size
+                        font_size: '22sp'
+                        halign: 'left'
+                        valign: 'middle'
+            Button:
+                background_normal: ''
+                background_color: (.4,.1,.6,.85)
+                size_hint_x: .1
+                on_press:root.rotiraj_display(-90)
+                BoxLayout:
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    padding: 5
+                    Image:
+                        source: 'icons/rotate_right_white_48dp.png'
+                        pos_hint: {'center_x':.5, 'center_y':.5}
+                        size_hint_y: .8
+            Button:
+                background_normal: ''
+                background_color: (.4,.1,.6,.85)
+                size_hint_x: .1
+                on_press:root.rotiraj_display(90)
+                BoxLayout:
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    padding: 5
+                    Image:
+                        source: 'icons/rotate_left_white_48dp.png'
+                        pos_hint: {'center_x':.5, 'center_y':.5}
+                        size_hint_y: .8
+
+            Button:
+                background_normal: ''
+                background_color: (.44,.11,.57,.9)
+                size_hint_x: .15
+                on_press: root.pop_instrukcije(app.root.screens[1].igram_igru)
+                BoxLayout:
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    padding: 5
+                    Image:
+                        source: 'icons/account-school.png'
+                        pos_hint: {'center_x':.5, 'center_y':.5}
+                        size_hint_y: .8
+
+        FloatLayout:
+            size_hint_y: .8
+            FloatLayout: #display
+                MDLabel:
+                    id: rsvp_display
+                    color: '#000000'
+                    halign: 'center'
+                    valign: 'middle'
+                    markup: True
+                    pos_hint: {"center_x": .5, "center_y": .5} #default
+                    canvas.before:
+                        PushMatrix
+                        Rotate:
+                            angle: root.display_ugao
+                            origin: self.center
+                    canvas.after:
+                        PopMatrix
+            FloatLayout: #pointer
+                Label:
+                    id: pokazivac
+                    markup: True
+                    halign: 'center'
+                    color: '#00004e'
+                    text: "[b][u]A[/u]\n|!|\n|i|"
+                    font_size: '18sp'
+                    pos_hint: {"center_x": 1.1, "center_y": 1.1}
+                    canvas.before:
+                        PushMatrix
+                        Rotate:
+                            angle: root.pokazivac_ugao
+                            origin: self.center
+                    canvas.after:
+                        PopMatrix
+
+    FloatLayout:
+        GridLayout:
+            id: grozd_box
+            cols: 3
+            size_hint_y: .3
+            pos_hint: {'x': 0, 'y': .1}
+
+    GridLayout:
+        id:nav_grid
+        rows:1
+        size_hint_y: .09
+        Button:
+            background_normal: ''
+            background_color: (.9,.9,.9,1)
+            on_press:
+                root.nav_kontrola("Povratak",app.root.screens[1].igram_igru)
+                root.meri_vreme("završi",app.root.screens[1].igram_igru)
+                app.root.current = 'TextPrep'
+                root.manager.transition.direction = 'right'
+            StackLayout:
+                pos: self.parent.pos
+                size: self.parent.size
+                orientation: 'tb-lr'
+                padding: 2, 10
+                Image:
+                    source: 'icons/arrow_left_grey_48dp.png'
+                    size_hint_y: .7
+                Label:
+                    color: '#5a5a5a'
+                    size_hint_y: .3
+                    text: "Back"
+        Button:
+            id: nav_play
+            background_normal: ''
+            background_color: (.9,.9,.9,1)
+            on_press: root.nav_kontrola("Kreni/Stani",app.root.screens[1].igram_igru)
+            StackLayout:
+                pos: self.parent.pos
+                size: self.parent.size
+                orientation: 'tb-lr'
+                padding: 2, 10
+                Image:
+                    id: nav_play_image
+                    source: 'icons/play_grey_48dp.png'
+                    size_hint_y: .7
+                Label:
+                    color: '#5a5a5a'
+                    size_hint_y: .3
+                    text: "Run"
+
+
+<Tekstovi>:
+    name: 'Tekstovi'
+    lista_naslova:lista_naslova
+    input_naslov:input_naslov
+    input_text:input_text
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout: #MiroTopBar
+            orientation: 'horizontal'
+            size_hint: 1, .08
+            pos_hint: {"center_x": .5, "center_y": .955}
+            Button:
+                background_normal: ''
+                background_down: ''
+                background_color: (.1,.3,.5,.9)
+                size_hint_x: .8
+                BoxLayout:
+                    orientation: 'horizontal'
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    padding: 5, 10
+                    Image:
+                        source: 'icons/documents_white_48dp.png'
+                        size_hint_x: .1
+                    Label:
+                        color: '#ffffff'
+                        size_hint_x: .9
+                        text: "Article database"
+                        text_size: self.size
+                        font_size: '23sp'
+                        halign: 'left'
+                        valign: 'middle'
+            # MDRectangleFlatIconButton:
+            #     size_hint_x: .3
+            #     pos: self.parent.pos
+            #     size: self.parent.size
+            #     icon: "check-bold"
+            #     text: "Done"
+            #     font_style: 'Button'
+            #     theme_text_color: "Custom"
+            #     text_color: "white"
+            #     line_color: "blue"
+            #     md_bg_color: "green"
+            #     theme_icon_color: "Custom"
+            #     icon_color: "white"
+            #     on_press:
+            #         app.root.current = 'Pocetna'
+            #         root.manager.transition.direction = 'down'
+            #         root.manager.transition.duration = .3
+
+        BoxLayout: #INPUT-TEXTOVI
+            orientation: 'vertical'
+            padding: 5
+            spacing: 5
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: .1
+                padding: 5
+                spacing: 2
+                TextInput:
+                    id: input_naslov
+                    font_size: '18sp'
+                    font_name: 'data/fonts/serif.otf'
+                    hint_text: "Title"
+            BoxLayout:
+                size_hint_y: .45
+                padding: 5
+                TextInput:
+                    id: input_text
+                    font_name: 'data/fonts/serif.otf'
+                    hint_text: "Paste here the text of an article for practice"
+
+
+            ScrollView: #Choosing articles
+                size_hint_y: .3
+                size_hint_x: .98
+                pos_hint: {"center_x": .5, "center_y": .5}
+                bar_inactive_color: (.1,.3,.5,.9)
+                bar_width: 5
+                canvas.before:
+                    Color:
+                        rgba: (.9,.9,.9,1)
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                    Line:
+                        width: .7
+                        rectangle: (self.x, self.y, self.width, self.height)
+                MDList:
+                    id: lista_naslova
+                    spacing: 3
+                    padding: 5
+
+        GridLayout: #BottomNavigation
+            rows:1
+            size_hint_y: .1
+            Button: #Clear-fields
+                background_normal: ''
+                background_color: (.3,.3,.4,.9)
+                size_hint_x: .3
+                on_press:
+                    root.input_naslov.text = ""
+                    root.input_text.text = ""
+                StackLayout:
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    orientation: 'tb-lr'
+                    padding: 2, 10
+                    Image:
+                        source: 'icons/backspace_white_24dp.png'
+                        size_hint_y: .7
+                    Label:
+                        color: '#ffffff'
+                        size_hint_y: .3
+                        text: "Clear fields"
+
+            Button: #Delete-article
+                background_normal: ''
+                background_color: (.3,.3,.4,.9)
+                size_hint_x: .3
+                on_press: root.izbrisi_artikl()
+                StackLayout:
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    orientation: 'tb-lr'
+                    padding: 2, 10
+                    Image:
+                        source: 'icons/trashcan_white_24dp.png'
+                        size_hint_y: .7
+                    Label:
+                        color: '#ffffff'
+                        size_hint_y: .3
+                        text: "Delete article"
+
+            Button: #Save-article
+                background_normal: ''
+                background_color: (.3,.3,.4,.9)
+                size_hint_x: .3
+                on_press: root.sacuvaj_artikl()
+                StackLayout:
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    orientation: 'tb-lr'
+                    padding: 2, 10
+                    Image:
+                        id: nav_play_image
+                        source: 'icons/content_save_white_24dp.png'
+                        size_hint_y: .7
+                    Label:
+                        color: '#ffffff'
+                        size_hint_y: .3
+                        text: "Save article"
+
+
+<Dynamic>:
+    name: 'Dynamic'
+    miro_top_bar: miro_top_bar
+    bar_icon: bar_icon
+    content_box:content_box
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout: #MiroTopBar
+            orientation: 'horizontal'
+            size_hint: 1, .08
+            pos_hint: {"center_x": .5, "center_y": .955}
+            Button:
+                background_normal: ''
+                background_color: (.1,.3,.5,.9)
+                size_hint_x: .7
+                BoxLayout:
+                    orientation: 'horizontal'
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    padding: 5, 15
+                    Image:
+                        id: bar_icon
+                        source: 'icons/school_white_48dp.png'
+                        size_hint_x: .1
+                    Label:
+                        id: miro_top_bar
+                        color: '#ffffff'
+                        size_hint_x: .9
+                        text: "Dynamic"
+                        text_size: self.size
+                        font_size: '23sp'
+                        halign: 'left'
+                        valign: 'middle'
+
+            # MDRectangleFlatIconButton:
+            #     size_hint_x: .3
+            #     pos: self.parent.pos
+            #     size: self.parent.size
+            #     icon: "check-bold"
+            #     text: "Done"
+            #     font_style: 'Button'
+            #     theme_text_color: "Custom"
+            #     text_color: "white"
+            #     line_color: "white"
+            #     md_bg_color: "green"
+            #     theme_icon_color: "Custom"
+            #     icon_color: "white"
+            #     on_press:
+            #         app.root.current = 'Pocetna'
+            #         root.manager.transition.direction = 'left'
+            #         root.manager.transition.duration = .3
+            #         root.odakle = "Iz početne"
+        BoxLayout:
+            id: content_box
+            orientation: 'vertical'
+            padding: 10
+            spacing: 5
+            size_hint: (.95,.92)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+
