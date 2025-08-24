@@ -4,6 +4,10 @@ import 'screens/game_setup_screen.dart';
 import 'screens/imagine_screen.dart';
 import 'screens/accumulation_screen.dart';
 import 'screens/desync_screen.dart';
+import 'screens/text_prep_screen.dart';
+import 'screens/olaksaonica_screen.dart';
+import 'screens/tekstovi_screen.dart';
+import 'screens/dynamic_screen.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -44,6 +48,58 @@ class HomePage extends StatelessWidget {
             const DrawerHeader(
               decoration: BoxDecoration(color: Colors.deepOrange),
               child: Center(child: Text('Menu')),
+            ),
+            ListTile(
+              leading: const Icon(Icons.text_fields),
+              title: const Text('Text Prep'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const TextPrepScreen(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.library_books),
+              title: const Text('Tekstovi'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const TekstoviScreen(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.lightbulb_outline),
+              title: const Text('Olaksaonica'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const OlaksaonicaScreen(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.dynamic_feed),
+              title: const Text('Dynamic'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const DynamicScreen(),
+                  ),
+                );
+              },
             ),
             ListTile(
               leading: const Icon(Icons.info_outline),
