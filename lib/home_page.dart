@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'core/game.dart';
+import 'screens/game_setup_screen.dart';
 import 'screens/imagine_screen.dart';
 import 'screens/accumulation_screen.dart';
 import 'screens/desync_screen.dart';
@@ -8,10 +10,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final games = <_GameEntry>[
-      _GameEntry('Imagine', const ImagineScreen()),
-      _GameEntry('Accumulation', const AccumulationScreen()),
-      _GameEntry('DeSync', const DesyncScreen()),
+    final games = <Game>[
+      ImagineGame(),
+      AccumulationGame(),
+      DesyncGame(),
     ];
 
     return Scaffold(
@@ -23,13 +25,15 @@ class HomePage extends StatelessWidget {
         crossAxisSpacing: 16,
         children: games
             .map(
-              (e) => ElevatedButton(
+              (game) => ElevatedButton(
                 style: ElevatedButton.styleFrom(padding: const EdgeInsets.all(8)),
                 onPressed: () => Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (_) => e.screen),
+                  MaterialPageRoute(
+                    builder: (_) => GameSetupScreen(game: game),
+                  ),
                 ),
-                child: Text(e.name, textAlign: TextAlign.center),
+                child: Text(game.name, textAlign: TextAlign.center),
               ),
             )
             .toList(),
@@ -56,10 +60,4 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-}
-
-class _GameEntry {
-  final String name;
-  final Widget screen;
-  const _GameEntry(this.name, this.screen);
 }
